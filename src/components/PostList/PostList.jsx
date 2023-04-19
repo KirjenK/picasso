@@ -3,28 +3,42 @@ import { Link } from 'react-router-dom';
 
 export default function PostList({ selectedUser }) {
   const [posts, setPosts] = useState([]);
-  console.log('posts', posts);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (selectedUser) {
+      setLoading(false);
       fetch(`https://jsonplaceholder.typicode.com/posts?userId=${selectedUser}`)
         .then((response) => response.json())
-        .then((data) => setPosts(data));
+        .then((data) => {
+          setPosts(data);
+          setLoading(true);
+        });
     } else {
       fetch('https://jsonplaceholder.typicode.com/posts')
         .then((response) => response.json())
-        .then((data) => setPosts(data));
+        .then((data) => {
+          setPosts(data);
+          setLoading(true);
+        });
     }
+    console.log('false', false);
   }, [selectedUser]);
 
   return (
     <div>
-      <h2>Все посты</h2>
-      <ol>
-        {Boolean(posts) && posts.map((post) => (
-          <li key={post.id}>{post.title} <Link to={`/posts/${post.id}`}><button type="button">Подробнее</button></Link></li>
-        ))}
-      </ol>
+      {loading ? (
+        <>
+          <h2>Все посты</h2>
+          <ol>
+            {Boolean(posts) && posts.map((post) => (
+              <li key={post.id}>{post.title} <Link to={`/posts/${post.id}`}><button type="button">Подробнее</button></Link></li>
+            ))}
+          </ol>
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }

@@ -9,8 +9,6 @@ export default function MainPage() {
     setSelectedUser(userId);
   };
 
-  console.log('selectedUser', selectedUser);
-
   return (
     <div className="App">
       <UserSelect

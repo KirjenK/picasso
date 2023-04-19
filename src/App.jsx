@@ -9,7 +9,6 @@ export default function App() {
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="/posts/:id" element={<Post />} />
-      {/* <Route path="/users/:id" element={<MainPage />} /> */}
     </Routes>
   );
 }
