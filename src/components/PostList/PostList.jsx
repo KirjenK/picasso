@@ -22,7 +22,6 @@ export default function PostList({ selectedUser }) {
           setLoading(true);
         });
     }
-    console.log('false', false);
   }, [selectedUser]);
 
   return (
