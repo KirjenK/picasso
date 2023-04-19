@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import UserSelect from '../UserSelect/UserSelect';
 import PostList from '../PostList/PostList';
+import styles from './mainPage.module.css';
 
 export default function MainPage() {
   const [selectedUser, setSelectedUser] = useState('');
@@ -10,7 +11,8 @@ export default function MainPage() {
   };
 
   return (
-    <div className="App">
+    <main className={styles.wrapper}>
+      <div className={styles.upBoarder} />
       <UserSelect
         onSelect={onSelect}
       />
@@ -18,6 +20,6 @@ export default function MainPage() {
         selectedUser={selectedUser}
         onSelect={onSelect}
       />
-    </div>
+    </main>
   );
 }

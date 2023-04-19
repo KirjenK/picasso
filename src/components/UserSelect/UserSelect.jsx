@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import styles from './userSelect.module.css';
 
 export default function UserSelect({ onSelect }) {
   const [users, setUsers] = useState([]);
@@ -19,7 +20,7 @@ export default function UserSelect({ onSelect }) {
   };
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       {loading ? (
         <>
           <h3>Выберите пользователя</h3>

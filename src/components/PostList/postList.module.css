@@ -1,0 +1,41 @@
+.wrapper>h2 {
+text-align: center;
+}
+
+.postWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: rgb(128, 128, 128, 0.5);
+  border-radius: 5px;
+}
+
+.postWrapper:hover {
+  background: rgb(146, 145, 145)
+}
+
+.postWrapper button {
+  margin-right: 2rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+}
+
+.postWrapper button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: black;
+}
+
+.postWrapper p {
+  margin-left: 2rem;
+}
+
+.loading {
+  text-align: center;
+}

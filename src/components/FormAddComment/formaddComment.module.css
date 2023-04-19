@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25rem;
+}
+
+.wrapper>h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.sendBtn {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  margin-top: 5px;
+  width: 6rem;
+}
+
+.sendBtn:hover {
+  cursor: pointer;
+  color: white;
+  background-color: black;
+}
+
+.wrapper form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formInput {
+  width: 10rem;
+  margin-top: 5px;
+  outline: none
+}
+.formInputBody {
+  width: 15rem;
+  height: 2rem;
+}

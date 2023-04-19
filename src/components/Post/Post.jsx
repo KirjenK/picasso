@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import FormAddComment from '../FormAddComment/FormAddComment';
+import styles from './post.module.css';
 
 export default function Post() {
   const navigate = useNavigate();
@@ -37,33 +38,32 @@ export default function Post() {
     navigate(-1);
   };
 
-  console.log('comments', comments);
-
   return (
-    <div>
-      <button onClick={handleClick} type="button">Вернуться назад</button>
+    <div className={styles.wrapper}>
+      <div className={styles.upBoarder} />
+      <button className={styles.backBtn} onClick={handleClick} type="button">Вернуться назад</button>
       {loading ? (
         <>
-          <div>
+          <div className={styles.insideBlock}>
             <h1>Post: {`${post.title.slice(0, 4).trim()}..`}</h1>
             <h2>User: {user.name}</h2>
             <i>Username: {user.username}</i>
-            <p>title: {post?.title}</p>
-            <p>body: {post?.body}</p>
+            <p className={styles.title}>title: {post.title}</p>
+            <p>body: {post.body}</p>
           </div>
-          <div>
-            <h3>Comments: {comments.length}</h3>
-            {comments.map((comment) => (
-              <div key={comment.id}>
-                <h3>{comment.name}</h3>
-                <p>{comment.body}</p>
+          <div className={styles.blockComment}>
+            <h3 className={styles.commentsTitle}>Comments: {comments?.length}</h3>
+            {comments?.map((comment, i) => (
+              <div className={styles.commentWrapper} key={comment.id}>
+                <h3>{i + 1}. {comment.name}</h3>
+                <p className={styles.commentBody}>{comment.body}</p>
               </div>
             ))}
           </div>
           <FormAddComment postId={id} setComments={setComments} />
         </>
       ) : (
-        <p>...Loading</p>
+        <p className={styles.loading}>Loading...</p>
       )}
 
     </div>

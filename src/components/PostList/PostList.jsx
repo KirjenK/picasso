@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import styles from './postList.module.css';
 
 export default function PostList({ selectedUser }) {
   const [posts, setPosts] = useState([]);
@@ -25,18 +26,19 @@ export default function PostList({ selectedUser }) {
   }, [selectedUser]);
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       {loading ? (
         <>
           <h2>Все посты</h2>
-          <ol>
-            {Boolean(posts) && posts.map((post) => (
-              <li key={post.id}>{post.title} <Link to={`/posts/${post.id}`}><button type="button">Подробнее</button></Link></li>
-            ))}
-          </ol>
+          {Boolean(posts) && posts.map((post, i) => (
+            <div key={post.id} className={styles.postWrapper}>
+              <p>{i + 1}. {post.title} </p>
+              <Link to={`/posts/${post.id}`}><button type="button">Подробнее</button></Link>
+            </div>
+          ))}
         </>
       ) : (
-        <p>Loading...</p>
+        <p className={styles.loading}>Loading...</p>
       )}
     </div>
   );

@@ -1,4 +1,3 @@
-/* eslint-disable default-param-last */
 import * as type from '../actions/postsActions';
 
 export const postsReducer = (state = [], action) => {

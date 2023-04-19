@@ -1,0 +1,13 @@
+.wrapper {
+  text-align: center;
+}
+
+.wrapper>select {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 15px;
+  padding: 8px;
+  /* outline: none */
+  outline-color: rgb(0, 0, 0);
+}

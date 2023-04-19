@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './formaddComment.module.css';
 
 export default function FormAddComment({ postId, setComments }) {
   const [name, setName] = useState('');
@@ -27,8 +28,8 @@ export default function FormAddComment({ postId, setComments }) {
       },
     })
       .then((res) => res.json())
-      .then((json) => {
-        setComments((iv) => [...iv, json]);
+      .then((newComment) => {
+        setComments((iv) => [...iv, newComment]);
         setName('');
         setBody('');
         setSend(false);
@@ -36,12 +37,12 @@ export default function FormAddComment({ postId, setComments }) {
   };
 
   return (
-    <div>
-      <h2>Добавить комментарий</h2>
+    <div className={styles.wrapper}>
+      <h3>Добавить комментарий</h3>
       <form onSubmit={handleSubmit}>
-        <input onChange={handleInputName} value={name} placeholder="name" type="text" />
-        <input onChange={handleInputBody} value={body} placeholder="body" type="text" />
-        <button type="submit">Добавить</button>
+        <input className={styles.formInput} onChange={handleInputName} value={name} placeholder="title" type="text" />
+        <textarea className={`${styles.formInput} ${styles.formInputBody}`} onChange={handleInputBody} value={body} placeholder="body" type="text" />
+        <button className={styles.sendBtn} type="submit">Добавить</button>
       </form>
       {send ? (
         <p>Отправка комментария..</p>
